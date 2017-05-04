@@ -1,0 +1,81 @@
+@import "neat/neat";
+
+// $neat-grid: (
+//   columns: 6,
+//   gutter: 5px
+// );
+
+// $custom-neat-grid: (
+//   columns: 12,
+//   gutter: 20px,
+//   media: 768px,
+//   color: #000,
+// );
+
+// .main {
+//   @include grid-container;
+
+//   .photo {
+//   	//@include grid-column(2);
+
+//   	@include grid-media($custom-neat-grid){
+//     	@include grid-column(6);
+//   	}
+
+//   	img {
+//   		width: 100%;
+//   	}
+//   }
+
+//   .description {
+//   	//@include grid-column(4);
+
+//   	@include grid-media($custom-neat-grid){
+//     	@include grid-column(6);
+//   	}
+//   }
+// }
+
+$custom-neat-grid: (
+  gutter: 30px,
+  media: 40rem
+);
+
+$color-primary: #38a1d6;
+$color-secondary: #16f4d0;
+$color-tertiary: #fcee21;
+$color-grey: #a1acb5;
+$color-grey-light: #dce8ef;
+$color-grey-dark: #333;
+
+.container {
+    @include grid-container;
+  row {
+    @include grid-collapse;
+  }
+
+  row.row1 {
+    block {
+      @include grid-column(12);
+
+      background-color: $color-primary;
+      @include grid-media($custom-neat-grid){
+        @include grid-column(6, $custom-neat-grid);
+      }
+    }
+  }
+
+  row.row2 block{
+    background-color: $color-secondary;
+    @include grid-media($custom-neat-grid){
+      @include grid-column(4 of 12);
+    }
+  }
+
+  row.row3 block{
+    background-color: $color-grey-light;
+    @include grid-media($custom-neat-grid){
+      @include grid-column(3 of 12);
+    }
+  }
+}
